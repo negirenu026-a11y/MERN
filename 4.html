@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>student infomation</h1>
+        <Label>Enter name:</Label>
+        <input type="text" id="name">
+        <br> <br>
+        <label>Enter  age:</label>
+        <input type="number" id="age">
+        <br><br>
+        <button onclick="showDetails()">show Details</button>
+
+        <h2 id="result"></h2>
+        <script>
+            function showDetails(){
+                let studentName = document.getElementById("name").value;
+                let studentAge = document.getElementById("age".value);
+                document.getElementById("result").innerText ="student name: " + studentName + ",Age: " + studentName + ",Age: " + studentAge;
+               
+            }
+        </script>
+    </body>
+</html>
