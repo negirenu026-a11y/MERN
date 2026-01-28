@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height:100vh;
+            width: 100vw;
+            margin:0;
+        }
+        .container{
+            background-color: blueviolet;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            /* flex-direction: column; */
+            /* flex-direction: row,column-reverse; */
+            /* justify-content: end;(space-between,space-evenly,space-around) */
+            /* align-items: center; */
+            /* align-content: ; */
+            /* flex-wrap: wrap(revrse); */
+           
+
+
+        }
+        .c1{
+            background-color: brown;
+            height: 100px;
+            width: 100px;
+             /* order:2; */
+             flex-grow: 1;
+             /* flex-shrink: 2; */
+             align-self: center;
+        }
+        .c2{
+            background-color: rgb(104, 165, 42);
+            height: 100px;
+            width: 100px;
+        }
+        .c3{
+            background-color: rgb(42, 165, 101);
+            height: 100px;
+            width: 100px;
+        }
+        .c4{
+            background-color: rgb(165, 42, 153);
+            height: 100px;
+            width: 100px;
+        }
+        .c5{
+            background-color: rgb(35, 10, 10);
+            height: 100px;
+            width: 100px;
+        }
+        .c6{
+            background-color: rgb(36, 32, 32);
+            height: 100px;
+            width: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- flexbox(flexbox container,) -->
+     <div class="container">
+        <div class="c1">c1</div>
+        <div class="c2">c2</div>
+        <div class="c4">c3</div>
+        <div class="c5">c4</div>
+        <div class="c6">c5</div>
+     </div>
+
+</body>
+</html>
