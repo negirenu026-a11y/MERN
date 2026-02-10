@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* pseduo class */
+        a:link{
+            color:blueviolet;
+        }
+        a:visited{
+            color: brown;
+        }
+        a:hover{
+            background-color: chartreuse;
+            color: coral;
+        }
+        a:active{
+            color: lightcoral;
+        }
+
+        input:focus{
+            background-color: blue;
+            color: blueviolet;
+        }
+        li:first-child{
+            color: bisque;
+        }
+        li:last-child{
+            border: 2px solid green;
+        }
+
+        li:nth-child(2){
+            color: rgb(19, 108, 79);
+        }
+        li:nth-child(even){
+            color:mediumvioletred
+        }
+        li:nth-child(odd){
+            color:rgb(210, 140, 240);
+        }
+        li:nth-child(2n+1){
+            color: brown;
+        }
+        li:nth-child(2n+2){
+            color: fuchsia;
+        }
+        
+        /* element */
+        h1::first-letter{
+            font-size: 40px;
+            font-weight: bolder;
+            text-transform: uppercase;
+        }
+        p::first-line{
+            background-color: red;
+        }
+        p::before{
+            content: "hello coders";
+        }
+        p::after{
+            content: "hello guyes";
+        }
+        ::selection{
+            background-color: green;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="https://www.google.com" target="_blank">google</a>
+
+    <input type="text" placeholder="enter your name">
+    <ol>
+        <li>kanu</li>
+        <li>manu</li>
+        <li>ranu</li>
+        <li>shanu</li>
+        <li>hanu</li>
+    </ol>
+
+    <h1>hello coder roots</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus, deleniti aliquam. Pariatur, excepturi! Incidunt voluptates voluptate nulla facilis corporis, quibusdam repellendus ducimus, sint est accusamus atque harum accusantium illum quisquam!</p>
+    
+</body>
+</html>
