@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bulb & Cat</title>
+
+<style>
+body{
+    text-align:center;
+    font-family: Arial, sans-serif;
+    background-color:#222;
+    color:white;
+}
+
+.bulb{
+    font-size:80px;
+    transition:0.5s;
+}
+
+.cat{
+    font-size:80px;
+    margin-top:20px;
+    transition:0.5s;
+}
+
+.box{
+    margin-top:30px;
+    padding:20px;
+    background-color:#444;
+    border-radius:10px;
+    display:inline-block;
+    transition:0.5s;
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+    font-size:18px;
+    cursor:pointer;
+    border:none;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.on-btn{
+    background-color:green;
+    color:white;
+}
+
+.off-btn{
+    background-color:red;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bulb" id="bulb">💡</div>
+<div class="cat" id="cat">🐱</div>
+
+<div class="box" id="box">
+    <button class="on-btn" onclick="turnOn()">ON</button>
+    <button class="off-btn" onclick="turnOff()">OFF</button>
+</div>
+
+<script>
+function turnOn(){
+    document.getElementById("bulb").style.filter = "drop-shadow(0 0 20px yellow)";
+    document.getElementById("cat").innerHTML = "🐱";
+    document.getElementById("box").style.backgroundColor = "#444";
+    
+    document.querySelector(".on-btn").style.fontSize = "22px";
+    document.querySelector(".off-btn").style.fontSize = "18px";
+}
+
+function turnOff(){
+    document.getElementById("bulb").style.filter = "none";
+    document.getElementById("cat").innerHTML = "👀";
+    document.getElementById("box").style.backgroundColor = "black";
+    
+    document.querySelector(".off-btn").style.fontSize = "22px";
+    document.querySelector(".on-btn").style.fontSize = "18px";
+}
+</script>
+
+</body>
+</html>

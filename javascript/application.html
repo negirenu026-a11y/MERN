@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomb Defuser App</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+            color:white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container{
+            background-color: rgb(60, 58, 58);
+            padding: 40px;
+            border-radius:15px;
+            box-shadow: 0 0 20px rgba(255,0,0,00.5s);
+            border:2px solid rgb(100, 97, 97);
+            width:350px;
+        }
+        h1{
+            color:rgb(250, 115, 115);
+            margin-bottom: 10px;
+        }
+        .timer{
+            font-size:40px;
+            font-weight:bold;
+            color:rgb(245, 111, 111);
+            margin:20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="gameContainer">
+    <h1>BOMB DEFUSER</h1>
+    <div class="timer" id="timerDisplay">10</div>
+
+    <p class="text">Type this text to defuse:</p>
+    <p style="color: greenyellow; font-weight: bold; font-size:20px;" id="new">DECODE</p>
+
+    <input type="text" id="userInput" placeholder="type here..." autocomplete="off">
+
+    <div class="status " id="statusMessage"></div>
+    </div>
+
+    
+</body>
+</html>

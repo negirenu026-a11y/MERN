@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomb Defuser App</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #222;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #333;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            border: 2px solid #555;
+            width: 350px;
+        }
+
+        h1 {
+            color: #ff4d4d;
+            margin-bottom: 10px;
+        }
+
+        .timer {
+            font-size: 40px;
+            font-weight: bold;
+            color: #ffcc00;
+            margin: 20px 0;
+        }
+
+        .target-text {
+            font-size: 18px;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 20px;
+            text-align: center;
+            outline: none;
+        }
+
+        .status {
+            font-size: 24px;
+            font-weight: bold;
+            min-height: 30px;
+        }
+
+        
+        .shake {
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="gameContainer">
+        <h1>💣 BOMB DEFUSER</h1>
+        <div class="timer" id="timerDisplay">10</div>
+        
+        <p class="target-text">Type this text to defuse:</p>
+        <p style="color: #00ff00; font-weight: bold; font-size: 20px;" id="targetText">DECODE</p>
+        
+        <input type="text" id="userInput" placeholder="Type here..." autocomplete="off">
+        
+        <div class="status" id="statusMessage"></div>
+    </div>
+
+    <script>
+        // Game Variables
+        let timeLeft = 10;
+        const targetText = "DECODE";
+        let timerInterval;
+        let isGameActive = true;
+
+        // DOM Elements
+        const timerDisplay = document.getElementById('timerDisplay');
+        const userInput = document.getElementById('userInput');
+        const statusMessage = document.getElementById('statusMessage');
+        const gameContainer = document.getElementById('gameContainer');
+
+        // Start the Timer using setInterval
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                timerDisplay.innerText = timeLeft;
+
+                // Check if time is up
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    isGameActive = false;
+                    bombBlast();
+                }
+            }, 1000); // 1000ms = 1 second
+        }
+
+        // Listen for user typing
+        userInput.addEventListener('input', () => {
+            if (!isGameActive) return; // Stop if game is over
+
+            // Check if user typed the correct text
+            if (userInput.value === targetText) {
+                clearInterval(timerInterval);
+                isGameActive = false;
+                bombDefused();
+            }
+        });
+
+        // Function: Bomb Defused (Win)
+        function bombDefused() {
+            statusMessage.innerText = "✅ BOMB DEFUSED!";
+            statusMessage.style.color = "#00ff00";
+            timerDisplay.style.color = "#00ff00";
+            userInput.disabled = true;
+            
+            // Optional: Change background to green
+            document.body.style.backgroundColor = "#1a4d1a";
+        }
+
+        // Function: Bomb Blast (Lose)
+        function bombBlast() {
+            statusMessage.innerText = "💥 BOMB IS BLAST!";
+            statusMessage.style.color = "#ff4d4d";
+            timerDisplay.style.color = "#ff4d4d";
+            userInput.disabled = true;
+
+            // Add shake animation class
+            gameContainer.classList.add('shake');
+            
+            // Change background to red
+            document.body.style.backgroundColor = "#4d1a1a";
+        }
+
+        // Start the game when page loads
+        startTimer();
+
+    </script>
+</body>
+</html>
